@@ -4,7 +4,7 @@
   "description": "My first package",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha ./tests"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lakshmipriyamukundan/probable-octo-happiness/issues"
   },
-  "homepage": "https://github.com/lakshmipriyamukundan/probable-octo-happiness#readme"
+  "homepage": "https://github.com/lakshmipriyamukundan/probable-octo-happiness#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
 }
