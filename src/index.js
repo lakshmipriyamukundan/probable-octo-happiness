@@ -1,4 +1,15 @@
 const jokes = require('./jokes.json');
+const Promise = require('bluebird');
+
+var levelup = require('levelup');
+levelup = promisifyAll(levelup);
+
+// 1) Create our database, supply location and options.
+//    This will create or open the underlying LevelDB store.
+var db = levelup('./jokesDb');
+
+
+// 2) put a key & value
 
 let random = function() {
 	let joke = jokes.jokes;
@@ -7,12 +18,44 @@ let random = function() {
 };
 
 let addJoke = function(joke) {
-	let jokez = jokes.jokes;
-	jokez.push(joke);
-	return true;
+	return new Promise((resolve, reject) => {
+
+		db.put('text', 'NewLvelUp', function(err) {
+			if (err) {
+				return reject(err);
+
+			}
+			resolve();
+		});
+	});
 };
+
+class Counter {
+	constructor() {
+		db.get('counter', (err, counter) => {
+			if (err) return reject(err);
+			return resolve(counter);
+		});
+	}
+	static get() {
+		return new Promise((resolve, reject) => {
+			db.get('counter', (err, counter) => {
+				if (err) return reject(err);
+				return resolve(counter);
+			});
+		});
+	};
+
+	static update() {
+		return new Promise((resolve, reject))
+	}
+
+}
+
 
 module.exports = {
 	random,
 	addJoke
 };
+
+addJoke();
