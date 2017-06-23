@@ -42,6 +42,9 @@ class Level {
 
 	getCounter() {
 		return new Promise((resolve, reject) => {
+			if (this.counter)
+				return resolve(this.counter);
+
 			this.get('counter')
 				.then(counter => {
 					this.counter = +counter;
@@ -58,14 +61,29 @@ class Level {
 	}
 
 	updateCounter() {
+		this.counter++;
 		return new Promise((resolve, reject) => {
-			this.db.put('counter', this.counter + 1, err => {
-				if (err) return reject(err);
-				this.counter++;
+			this.db.put('counter', this.counter, err => {
+				if (err) {
+					this.counter--;
+					return reject(err);
+				}
 				resolve();
 			})
 		});
 	};
+
+	// showFullData() {
+	// 	return new Promise((resolve, reject) => {
+	// 		this.db.createReadStream((data, err) => {
+	// 			console.log(data);
+	// 			if (err) {
+	// 				return reject(err);
+	// 			}
+	// 			resolve(data);
+	// 		})
+	// 	});
+	// }
 }
 
 module.exports = Level;

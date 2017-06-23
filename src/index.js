@@ -37,6 +37,20 @@ class Joke {
 			})
 		})
 	}
+
+	static initialize() {
+		return db.getCounter();
+	}
+
+	// static showAll() {
+	// 	return new Promise((resolve, reject) => {
+	// 		db.showFullData().then((data) => {
+	// 			return resolve(data);
+	// 		}).catch(err => {
+	// 			return reject(err);
+	// 		});
+	// 	})
+	// }
 };
 
 module.exports = Joke;
