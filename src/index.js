@@ -1,61 +1,48 @@
-const jokes = require('./jokes.json');
 const Promise = require('bluebird');
+const Level = require('./Level');
 
-var levelup = require('levelup');
-levelup = promisifyAll(levelup);
-
-// 1) Create our database, supply location and options.
-//    This will create or open the underlying LevelDB store.
-var db = levelup('./jokesDb');
+// initialize db
+let db = new Level('./jokesDb');
 
 
-// 2) put a key & value
-
-let random = function() {
-	let joke = jokes.jokes;
-	var item = joke[Math.floor(Math.random() * joke.length)];
-	return item;
-};
-
-let addJoke = function(joke) {
-	return new Promise((resolve, reject) => {
-
-		db.put('text', 'NewLvelUp', function(err) {
-			if (err) {
-				return reject(err);
-
-			}
-			resolve();
-		});
-	});
-};
-
-class Counter {
-	constructor() {
-		db.get('counter', (err, counter) => {
-			if (err) return reject(err);
-			return resolve(counter);
-		});
-	}
-	static get() {
+class Joke {
+	static add(joke) {
 		return new Promise((resolve, reject) => {
-			db.get('counter', (err, counter) => {
-				if (err) return reject(err);
-				return resolve(counter);
-			});
-		});
-	};
+			db.put(joke).then((key) => {
+				return resolve(key)
+			}).catch(err => {
+				return reject(err);
+			})
+		})
 
-	static update() {
-		return new Promise((resolve, reject))
+
 	}
 
-}
+	static get(key) {
+		return new Promise((resolve, reject) => {
+			db.get(key).then(joke => {
+				resolve(joke)
+			}).catch(err => {
+				reject(err);
+			})
+		})
+	}
 
-
-module.exports = {
-	random,
-	addJoke
+	static delete(key) {
+		return new Promise((resolve, reject) => {
+			db.delete(key).then(() => {
+				return resolve(true);
+			}).catch(err => {
+				return reject(err);
+			})
+		})
+	}
 };
 
-addJoke();
+module.exports = Joke;
+
+// Joke.add('Hello World 123!!').then(key => {
+// 	console.log(key);
+// });
+
+// Joke.get(14).then(joke => console.log(joke));
