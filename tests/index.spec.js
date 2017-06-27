@@ -23,6 +23,15 @@ describe('testing joke factory', () => {
 		})
 	});
 
+	// it('List all jokes', done => {
+	// 	jf.showAll().then(data => {
+	// 		console.log(data);
+	// 		done();
+	// 	}).catch(err => {
+	// 		done(err);
+	// 	})
+	// });
+
 	it('Deleting created joke from db', done => {
 		jf.delete(key).then(data => {
 			expect(data).to.be.true;
@@ -32,12 +41,4 @@ describe('testing joke factory', () => {
 		})
 	});
 
-	// it('List all jokes', done => {
-	// 	jf.showAll().then(data => {
-	// 		console.log(data);
-	// 		done();
-	// 	}).catch(err => {
-	// 		done(err);
-	// 	})
-	// })
 });

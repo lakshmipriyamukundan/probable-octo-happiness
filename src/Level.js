@@ -73,17 +73,16 @@ class Level {
 		});
 	};
 
-	// showFullData() {
-	// 	return new Promise((resolve, reject) => {
-	// 		this.db.createReadStream((data, err) => {
-	// 			console.log(data);
-	// 			if (err) {
-	// 				return reject(err);
-	// 			}
-	// 			resolve(data);
-	// 		})
-	// 	});
-	// }
+
+	showFullData() {
+		this.db.createReadStream()
+			.on('data', function(data) {
+				console.log(data);
+				console.log("data");
+				return resolve(data);
+			})
+
+	}
 }
 
 module.exports = Level;
