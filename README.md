@@ -8,7 +8,7 @@ npm install --save probable-octo-happiness
 ```
 ## Why ?
 
-Helps to learn basic operations in level db and oops. A great starter.
+A great beginner in level db.
 
 ## Examples
 
