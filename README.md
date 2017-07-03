@@ -7,12 +7,14 @@ Example
 1. To add joke.
 
 const jf = require('../src/index');
-jf.add('Sample joke);
+
+jf.add('Sample joke); 
 
 
 2. To get a joke.
 
 const jf = require('../src/index');
+
 jf.get(key);
 
 
