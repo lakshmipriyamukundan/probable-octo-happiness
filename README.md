@@ -1,4 +1,4 @@
-# My first package
+# Probable-octo-happiness
 
 Package for save and show jokes. It is a simple package. Level Db is used in backend. We have used classes with promises.
 
