@@ -1,20 +1,30 @@
 # Probable-octo-happiness
 
-Package for save and show jokes. It is a simple package. Level Db is used in backend. We have used classes with promises.
+A simple joke factory in level db.
 
-Example
+## Install
+```bash
+npm install --save probable-octo-happiness
+```
+## Why ?
 
-1. To add joke.
+Helps to learn basic operations in level db and oops. A great starter.
 
+## Examples
+
+### Add joke.
+```js
 const jf = require('../src/index');
 
 jf.add('Sample joke); 
+```
 
 
-2. To get a joke.
+### Get Joke
 
+```js
 const jf = require('../src/index');
 
 jf.get(key);
-
+```
 
