@@ -1,6 +1,8 @@
 # Probable-octo-happiness
 
-A simple joke factory in level db.
+A simple joke factory in level db. Supported by Node v6 and above.
+
+> My First Package Experiment
 
 ## Install
 ```bash
