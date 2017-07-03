@@ -2,6 +2,8 @@
 
 A simple joke factory in level db. Supported by Node v6 and above.
 
+[![Build Status](https://travis-ci.org/lakshmipriyamukundan/probable-octo-happiness.svg?branch=master)](https://travis-ci.org/lakshmipriyamukundan/probable-octo-happiness)
+
 > My First Package Experiment
 
 ## Install
