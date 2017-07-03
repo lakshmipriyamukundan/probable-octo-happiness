@@ -32,3 +32,6 @@ const jf = require('../src/index');
 jf.get(key);
 ```
 
+
+## Licence
+MIT &copy; [Lakshmipriya](https://twitter.com/mukundanlakshmi)

@@ -1,6 +1,6 @@
 {
 	"name": "probable-octo-happiness",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "My first package",
 	"main": "src/index.js",
 	"scripts": {
@@ -11,7 +11,7 @@
 		"url": "git+https://github.com/lakshmipriyamukundan/probable-octo-happiness.git"
 	},
 	"author": "",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/lakshmipriyamukundan/probable-octo-happiness/issues"
 	},
