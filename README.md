@@ -16,7 +16,7 @@ A great beginner in level db.
 ```js
 const jf = require('../src/index');
 
-jf.add('Sample joke); 
+jf.add('Sample joke'); 
 ```
 
 
