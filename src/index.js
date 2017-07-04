@@ -1,31 +1,28 @@
 const Promise = require('bluebird');
-const Level = require('./Level');
+const Level = require('./level');
 
-// initialize db
-let db = new Level('./jokesDb');
-
+// Initialize db
+const db = new Level('./jokesDb');
 
 class Joke {
 	static add(joke) {
 		return new Promise((resolve, reject) => {
-			db.put(joke).then((key) => {
-				return resolve(key)
+			db.put(joke).then(key => {
+				return resolve(key);
 			}).catch(err => {
 				return reject(err);
-			})
-		})
-
-
+			});
+		});
 	}
 
 	static get(key) {
 		return new Promise((resolve, reject) => {
 			db.get(key).then(joke => {
-				resolve(joke)
+				resolve(joke);
 			}).catch(err => {
 				reject(err);
-			})
-		})
+			});
+		});
 	}
 
 	static delete(key) {
@@ -34,14 +31,14 @@ class Joke {
 				return resolve(true);
 			}).catch(err => {
 				return reject(err);
-			})
-		})
+			});
+		});
 	}
 
 	static initialize() {
 		return db.getCounter();
 	}
-};
+}
 
 module.exports = Joke;
 

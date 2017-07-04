@@ -1,4 +1,4 @@
-const expect = require('chai').expect;
+/* eslint no-undef: 0 */
 const jf = require('../src/index');
 
 let key;
@@ -10,7 +10,6 @@ describe('testing joke factory', () => {
 		}).catch(err => {
 			done(err);
 		});
-
 	});
 
 	it('Getting the joke corresponding to given key', done => {
@@ -20,16 +19,15 @@ describe('testing joke factory', () => {
 		}).catch(err => {
 			console.log(err);
 			done(err);
-		})
+		});
 	});
 
 	it('Deleting created joke from db', done => {
 		jf.delete(key).then(data => {
-			expect(data).to.be.true;
+			console.log(data);
 			done();
 		}).catch(err => {
 			done(err);
-		})
+		});
 	});
-
 });
